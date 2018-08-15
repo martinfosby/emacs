@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+#define HELLO 10
+#define WORLD 20
+
+int ten = HELLO;
+int twent = WORLD;
+
+int main(int argc, char *argv[argc])
+{
+  printf("%d %d\n",ten, twent );
+  return 0;
+}

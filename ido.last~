@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/martin/.emacs.d/" . "snippets/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ 
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("c:/Users/Martin/.emacs.d/" (23112 16634 0 0) "snippets/" "server/" "samples/" "recentf~" "recentf" "readme.org~" "readme.org" "myinit.org~" "myinit.org" "myinit.el~" "myinit.el" "myinit (DESKTOP-DRC6A94's conflicted copy 2017-12-25).el" "init.el~" "init.el" "ido.last~" "ido.last" "eshell/" "elpa/" "auto-save-list/" "ac-comphist.dat" "ac-comphist (ubuntu-server's conflicted copy 2017-12-26).dat" ".something.txt.swp" ".python-environments/" ".mc-lists.el" ".#myinit.org" "#myinit.el#" "../" "./")
+
+ ("/home/martin/.emacs.d/snippets/" (23106 43261 480470 425000) "../" "./")
+
+ ("/home/martin/.emacs.d/" (23106 44390 395575 411000) "elpa/" "server/" "eshell/" "ac-comphist.dat" "samples/" "snippets/" "ac-comphist (ubuntu-server's conflicted copy 2017-12-26).dat" "readme.org~" "recentf" "init.el~" "readme.org" ".python-environments/" "myinit (DESKTOP-DRC6A94's conflicted copy 2017-12-25).el" "#myinit.el#" "../" "recentf~" "myinit.el~" "myinit.org" "auto-save-list/" "./" "init.el" "myinit.org~" "myinit.el")
+
+ ("/home/martin/.emacs.d/samples/" (23105 43684 893829 859000) "c/" "python/" "../" "./" "reveal/")
+
+ ("/home/martin/.emacs.d/samples/python/" (23106 44388 755588 346000) "test.py" "../" "test.py~" "#test.py#" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

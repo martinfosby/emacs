@@ -1,0 +1,63 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("c:/Users/Martin/Dropbox/" . "programming/")
+ ("c:/Users/Martin/" . "Dropbox/")
+ ("c:/Users/" . "All Users/")
+ ("/home/martin/.emacs.d/" . "snippets/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "c:/Users/Martin/Dropbox/programming/c++/"
+ "c:/Users/Martin/Dropbox/shared/"
+ "c:/Users/Martin/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "testing.cpp"
+ "elfeed.org"
+ "myinit.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("c:/Users/Martin/Dropbox/programming/c++/test/" (23121 9357 0 0) "makefile" "main.o" "main.exe" "main.cpp" "main" "fact.o" "fact.h" "fact.cpp" "combination.o" "combination.h" "combination.cpp" "a.out" "../" "./")
+
+ ("c:/Users/Martin/.emacs.d/" (23120 10816 0 0) "tramp" "snippets/" "server/" "samples/" "request/" "recentf~" "recentf" "readme.org~" "readme.org" "org-gcal/" "myinit.org~" "myinit.org" "myinit.el~" "myinit.el" "myinit (DESKTOP-DRC6A94's conflicted copy 2017-12-25).el" "init.el~" "init.el" "ido.last~" "ido.last" "eshell/" "elpa/" "bookmarks" "backups/" "auto-save-list/" "ac-comphist.dat" "ac-comphist (ubuntu-server's conflicted copy 2017-12-31).dat" "ac-comphist (ubuntu-server's conflicted copy 2017-12-26).dat" ".something.txt.swp" ".python-environments/" ".mc-lists.el" "#myinit.el#" "../" "./")
+
+ ("c:/Users/Martin/Dropbox/programming/" (23113 24048 0 0) "emacs/" "../" "./")
+
+ ("c:/Users/All Users/" (23119 46027 0 0) "WindowsHolographicDevices/" "Windows App Certification Kit/" "USOShared/" "USOPrivate/" "Unity/" "Templates/" "Steam/" "Start Menu/" "SoftwareDistribution/" "regid.1991-06.com.microsoft/" "Package Cache/" "NVIDIA Corporation/" "NVIDIA/" "Microsoft Visual Studio/" "Microsoft OneDrive/" "Microsoft/" "McAfee/" "Kaspersky Lab/" "GOG.com/" "Git/" "For Honor Data/" "Epic/" "Dropbox/" "Documents/" "Desktop/" "Chocolatey/" "Blizzard Entertainment/" "Battle.net/" "Application Data/" "Adobe/" ".mono/" "../" "./")
+
+ ("c:/Users/" (23114 38134 0 0) "Public/" "Martin/" "desktop.ini" "Default User/" "Default/" "cyg_server/" "All Users/" "../" "./")
+
+ ("c:/Users/Martin/" (23117 32500 0 0) "Videos/" "tramp-2.0.39.tar.gz" "tramp-2.0.39/" "Templates/" "Start Menu/" "ssh/" "source/" "shellscript.sh" "SendTo/" "Searches/" "Saved Games/" "Recent/" "PrintHood/" "Pictures/" "pasystray.exe.stackdump" "org/" "OneDrive/" "ntuser.ini" "NTUSER.DAT{5335357c-cd82-11e7-9932-d8f6663dda7d}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{5335357c-cd82-11e7-9932-d8f6663dda7d}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{5335357c-cd82-11e7-9932-d8f6663dda7d}.TM.blf" "NTUSER.DAT{5335357b-cd82-11e7-9932-d8f6663dda7d}.TxR.blf" "NTUSER.DAT{5335357b-cd82-11e7-9932-d8f6663dda7d}.TxR.2.regtrans-ms" "NTUSER.DAT{5335357b-cd82-11e7-9932-d8f6663dda7d}.TxR.1.regtrans-ms" "NTUSER.DAT{5335357b-cd82-11e7-9932-d8f6663dda7d}.TxR.0.regtrans-ms" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "NetHood/" "My Documents/" "Music/" "Local Settings/" "Links/" "Google Drive/" "Games/" "Favorites/" "evince/" "emacs-25.3.tar.gz" "emacs-25.3/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "Cookies/" "Contacts/" "apt-cyg" "Application Data/" "AppData/" "ansel/" "3D Objects/" ".z" ".xsession-errors" ".Xauthority" ".x2go/" ".wget-hsts" ".vscode/" ".VirtualBox/" ".viminfo" ".thumbnails/" ".ssh/" ".spacemacs.d/" ".spacemacs" ".serverauth.37468" ".serverauth.108680" ".profile" ".minttyrc" ".mednafen - Copy/" ".mednafen/" ".local/" ".insert-shebang.log" ".idlerc/" ".gnupg/" ".emacs.d.bak - Copy/" ".emacs.d.bak/" ".emacs.d/" ".elfeed/" ".dotnet/" ".dbus-keyrings/" ".dbus/" ".config/" ".cache/" ".bash_history" ".bashrc" ".atom/" "#cfile.c++#" "../" "./")
+
+ ("c:/Users/Martin/Dropbox/" (23118 58416 0 0) "TODO list/" "spacemacs/" "Space Shooter/" "shared/" "programming/" "Pong/" "Photos/" "org/" "OpenGL tutorial/" "My Game Project/" "martin/" "journal.org" "JavaGame/" "Getting Started.pdf" "Game_Saves/" "desktop.ini" "CloudSaves/" "Argumentasjons Analyse av vær varsom og dristig.odt" ".vimrc" ".profile" ".emacs.d.new/" ".emacs.d/" ".dropbox.cache/" ".dropbox" ".bashrc" "../" "./")
+
+ ("c:/Users/Martin/Dropbox/shared/" (23119 51116 0 0) "elfeeddb/" "elfeed.org" "../" "./")
+
+ ("c:/Users/Martin/Dropbox/.emacs.d/" (23119 44350 0 0) "tramp" "snippets/" "server/" "samples/" "request/" "recentf~" "recentf" "readme.org~" "readme.org" "org-gcal/" "myinit.org~" "myinit.org" "myinit.el~" "myinit.el" "myinit (DESKTOP-DRC6A94's conflicted copy 2017-12-25).el" "init.el~" "init.el" "ido.last~" "ido.last" "eshell/" "elpa/" "bookmarks" "backups/" "auto-save-list/" "ac-comphist.dat" "ac-comphist (ubuntu-server's conflicted copy 2017-12-31).dat" "ac-comphist (ubuntu-server's conflicted copy 2017-12-26).dat" ".something.txt.swp" ".python-environments/" ".mc-lists.el" "#myinit.el#" "../" "./")
+
+ ("c:/Program Files/" (23115 45851 0 0) "WindowsPowerShell/" "WindowsApps/" "Windows Sidebar/" "Windows Security/" "Windows Portable Devices/" "Windows Photo Viewer/" "Windows NT/" "Windows Multimedia Platform/" "Windows Media Player/" "Windows Mail/" "Windows Defender Advanced Threat Protection/" "Windows Defender/" "Unity/" "Uninstall Information/" "Sublime Text 3/" "RenderDoc/" "Reference Assemblies/" "qBittorrent/" "PuTTY/" "Oracle/" "nvim-win64/" "NVIDIA Corporation/" "MSBuild/" "Mozilla Firefox/" "Microsoft VS Code/" "Microsoft SQL Server/" "Microsoft ASP.NET Core Runtime Package Store/" "McAfee/" "key_snd/" "Internet Explorer/" "IIS/" "Godot/" "Git/" "FileZilla FTP Client/" "Emacs/" "Eidos Interactive/" "dotnet/" "DnsJumper/" "desktop.ini" "Common Files/" "Blender Foundation/" "Application Verifier/" "7-Zip/" "../" "./")
+
+ ("c:/Program Files/Emacs/" (23086 44181 0 0) "emacs-25.1-2-x86_64-w64-mingw32/" "../" "./")
+
+ ("c:/Program Files/Emacs/emacs-25.1-2-x86_64-w64-mingw32/" (23086 44223 0 0) "var/" "share/" "libexec/" "emacs-master/" "bin/" "../" "./")
+
+ ("c:/Program Files/Emacs/emacs-25.1-2-x86_64-w64-mingw32/bin/" (23079 873 0 0) "runemacs.exe" "libXpm-noX4.dll" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "emacs-25.1.exe" "ebrowse.exe" "ctags.exe" "addpm.exe" "../" "./")
+
+ ("/home/martin/.emacs.d/snippets/" (23106 43261 480470 425000) "../" "./")
+
+ ("/home/martin/.emacs.d/" (23106 44390 395575 411000) "elpa/" "server/" "eshell/" "ac-comphist.dat" "samples/" "snippets/" "ac-comphist (ubuntu-server's conflicted copy 2017-12-26).dat" "readme.org~" "recentf" "init.el~" "readme.org" ".python-environments/" "myinit (DESKTOP-DRC6A94's conflicted copy 2017-12-25).el" "#myinit.el#" "../" "recentf~" "myinit.el~" "myinit.org" "auto-save-list/" "./" "init.el" "myinit.org~" "myinit.el")
+
+ ("/home/martin/.emacs.d/samples/" (23105 43684 893829 859000) "c/" "python/" "../" "./" "reveal/")
+
+ ("/home/martin/.emacs.d/samples/python/" (23106 44388 755588 346000) "test.py" "../" "test.py~" "#test.py#" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,0 +1,6 @@
+// Swap the functions of the right Alt key and the right Ctrl key.
+partial modifier_keys
+xkb_symbols "swap_lalt_lctl" {
+    replace key <LALT> { [ Control_L, Control_L ] };
+    replace key <LCTL> { [ Alt_L, Meta_L ] };
+};

@@ -1,0 +1,567 @@
+#+STARTIP: overview
+* server
+#+BEGIN_SRC emacs-lisp
+  ;;;; i run emacs --daemon instead in my .bashrc file
+  ;;; starts emacs in server mode, run emacsclient -c for gui or -t for terminal
+  ;; (server-start)
+
+#+END_SRC
+
+#+RESULTS:
+
+* interface
+#+BEGIN_SRC emacs-lisp
+;;;; interface
+(setq inhibit-startup-message t)
+(global-linum-mode t)
+(tool-bar-mode -1)
+(fset 'yes-or-no-p 'y-or-n-p)
+(global-set-key (kbd "<f5>") 'revert-buffer)
+
+(setq delete-old-versions -1 )		; delete excess backup versions silently
+(setq version-control t )		; use version control
+(setq vc-make-backup-files t )		; make backups file even when in version controlled dir
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
+(setq vc-follow-symlinks t )				       ; don't ask for confirmation when opening symlinked file
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) ) ;transform backups file name
+(setq ring-bell-function 'ignore )	; silent bell when you make a mistake
+(setq coding-system-for-read 'utf-8 )	; use utf-8 by default
+(setq coding-system-for-write 'utf-8 )
+(setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
+(setq default-fill-column 80)		; toggle wrapping text at the 80th character
+(setq initial-scratch-message "Welcome in Emacs") ; print a default message in the empty scratch buffer opened at startup
+
+
+#+END_SRC
+
+#+RESULTS:
+: Welcome in Emacs
+
+* org
+#+BEGIN_SRC emacs-lisp
+  ;;; org 
+(use-package org
+  :ensure org-plus-contrib
+  )
+  ;;; org bullets
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  )
+
+  ;;; org options
+;;(setq org-src-tab-acts-natively t)
+#+END_SRC
+
+* try
+#+BEGIN_SRC emacs-lisp
+;;; try
+(use-package try
+  :ensure t
+  )
+#+END_SRC
+
+* which
+brings up some help
+#+BEGIN_SRC emacs-lisp
+
+  ;;; which
+  (use-package which-key
+    :ensure t
+    :config (which-key-mode)
+    )
+#+END_SRC
+* ido
+#+BEGIN_SRC emacs-lisp
+  ;;; ido
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+  ;;(defalias 'list-buffer 'ibuffer)
+  (defalias 'list-buffer 'ibuffer-other-window)
+#+END_SRC
+* tabbar
+#+BEGIN_SRC emacs-lisp
+  ;; ;;; tabbar
+  ;; (use-package tabbar
+  ;;   :ensure t
+  ;;   :config
+  ;;   (tabbar-mode 1))
+#+END_SRC
+* window
+#+BEGIN_SRC emacs-lisp
+  ;;;; window navigation
+  (winner-mode 1)
+  (windmove-default-keybindings)
+
+  ;;; ace window
+  (use-package ace-window
+    :ensure t
+    :init
+    (progn
+      (global-set-key [remap other-window] 'ace-window)
+      (custom-set-faces ;; adjust the size of the  number tags
+       '(aw-leading-char-face
+	 ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+      ))
+#+END_SRC
+* ivy, counsel & swiper
+#+BEGIN_SRC emacs-lisp
+  ;;; ivy
+  (use-package ivy
+    :ensure t
+    :diminish (ivy-mode)
+    :bind (("C-x b" . ivy-switch-buffer))
+    :config
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-display-style 'fancy))
+
+  ;;; counsel
+  (use-package counsel
+    :ensure t
+    :bind
+    (("M-y" . counsel-yank-pop)
+     :map ivy-minibuffer-map
+     ("M-y" . ivy-next-line)) 
+    )
+
+  ;;; swiper
+  (use-package swiper
+    :ensure t
+    :config
+    (progn
+      (ivy-mode 1)
+      (setq ivy-use-virtual-buffers t)
+      (global-set-key "\C-s" 'swiper)
+      (global-set-key (kbd "C-c C-r") 'ivy-resume)
+      (global-set-key (kbd "<f6>") 'ivy-resume)
+      (global-set-key (kbd "M-x") 'counsel-M-x)
+      (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+      (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+      (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+      (global-set-key (kbd "<f1> l") 'counsel-load-library)
+      (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+      (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+      (global-set-key (kbd "C-c g") 'counsel-git)
+      (global-set-key (kbd "C-c j") 'counsel-git-grep)
+      (global-set-key (kbd "C-c k") 'counsel-ag)
+      (global-set-key (kbd "C-x l") 'counsel-locate)
+      (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+      ))
+#+END_SRC
+* avy
+#+BEGIN_SRC emacs-lisp
+  ;;; avy
+  (use-package avy
+    :ensure t
+    :bind (("M-s" . avy-goto-char)
+	  ;;("C-'" . avy-goto-char-2)
+	   ;;("M-g f" . avy-goto-line)
+	   ;;("M-g w" . avy-goto-word-1)
+	   ;;("M-g e" . avy-goto-word-0)
+	   ))
+
+
+#+END_SRC
+* auto complete & company
+#+BEGIN_SRC emacs-lisp
+  ;;; auto complete
+  (use-package auto-complete
+    :ensure t
+    :init
+    (progn
+      (ac-config-default)
+      (global-auto-complete-mode t)
+      ))
+
+
+;;; company
+  ;;(use-package company
+  ;;  :ensure t
+  ;;  :init
+  ;;  (progn
+  ;;    (global-company-mode t)
+  ;;    ))
+  ;;;; auto completion packages
+
+
+#+END_SRC
+* themes
+#+BEGIN_SRC emacs-lisp
+  ;;;; themes
+
+  ;;; color-theme
+  (use-package color-theme
+    :ensure t
+    )
+
+  ;;; solarized
+  (use-package solarized
+    :ensure solarized-theme
+    :config ;;(load-theme 'solarized-dark t)
+    )
+
+  ;;; monokai
+  (use-package monokai-theme
+    :ensure t
+    :config ;;(load-theme 'monokai t)
+    )
+
+  ;;; sanityinc-tomorrow
+  (use-package color-theme-sanityinc-tomorrow
+    :ensure t
+    :config ;;(load-theme 'sanityinc-tomorrow-night t)
+    )
+
+;;; theme options
+(load-theme 'monokai t)
+#+END_SRC
+* htmlize
+#+BEGIN_SRC emacs-lisp
+;;;; htmlize  
+(use-package htmlize
+  :ensure t
+  )
+#+END_SRC
+
+#+RESULTS:
+
+* reveal.js
+
+#+BEGIN_SRC emacs-lisp
+(use-package ox-reveal
+  :ensure ox-reveal
+  )
+
+(setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+(setq org-reveal-mathjax t)
+
+#+END_SRC
+
+#+RESULTS:
+: t
+* flycheck
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t)
+  )
+
+#+END_SRC
+* python
+#+BEGIN_SRC emacs-lisp
+  ;;;; python
+
+  ;;; jedi
+(use-package jedi
+  :ensure t
+  :init
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-hook 'python-mode-hook 'jedi:ac-setup)
+  )
+
+  ;;; elpy
+(use-package elpy
+  :ensure t
+  :config
+  (elpy-enable)
+  )
+#+END_SRC
+
+#+RESULTS:
+: t
+* yasnippet
+#+BEGIN_SRC emacs-lisp
+  ;;; yasnippet
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1)
+  )
+#+END_SRC
+* evil
+#+BEGIN_SRC emacs-lisp
+     ;;;; evil
+
+
+;; using evil-commentary instead 
+     ;;; evil-nerd-commenter
+;; (use-package evil-nerd-commenter
+;;   :ensure t
+;;   :config (progn
+;; 	    ;; (evilnc-default-hotkeys)
+;; 	    )
+;;   )
+
+;; using general instead of evil-leader
+     ;;; evil-leader
+;; (use-package evil-leader
+;;   :ensure t
+;;   :config (progn
+;; 	    (global-evil-leader-mode)
+;; 	    (evil-leader/set-leader "<SPC>")
+;; 	    (evil-leader/set-key
+;; 		   ;;; evil nerd commenter keys
+;; 	      ;; "ci" 'evilnc-comment-or-uncomment-lines
+;; 	      ;; "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+;; 	      ;; "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+;; 	      ;; "cc" 'evilnc-copy-and-comment-lines
+;; 	      ;; "cp" 'evilnc-comment-or-uncomment-paragraphs
+;; 	      ;; "cr" 'comment-or-uncomment-region
+;; 	      ;; "cv" 'evilnc-toggle-invert-comment-line-by-line
+;; 	      ;; "."  'evilnc-copy-and-comment-operator
+;; 	      ;; "\\" 'evilnc-comment-operator ; if you prefer backslash key
+;; 		 ;;; splitting windows keys
+;; 	      "vs" 'split-window-right
+;; 	      "hs" 'split-window-below
+;; 	      )
+;; 	    )  
+;;   )
+
+     ;;; evil commentary
+(use-package evil-commentary
+  :ensure t
+  :config (progn
+	    (evil-commentary-mode)
+
+	    )
+  )
+
+  ;;; installing evil
+(use-package evil
+  :ensure t
+  :init (progn
+	  )
+  :config (progn
+	    (evil-mode 1)
+	    )
+  )
+     ;;; evil-surround
+;; deletes, replace or adds surrounding characters
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+     ;;; evil-replace-with-register
+;; allows replacing from the register
+(use-package evil-replace-with-register
+  :ensure t
+  :init (progn
+	  ;; change default key bindings (if you want) HERE
+	  (setq evil-replace-with-register-key (kbd "gr"))
+	  (evil-replace-with-register-install)
+	  )
+  )
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+	    (lambda ()
+	      (evil-org-set-key-theme))))
+
+;; (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+;; (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+;; (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+;; (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+#+END_SRC
+
+#+RESULTS:
+: t
+* general
+#+BEGIN_SRC emacs-lisp
+  ;;;; general lets you easily add keybinds
+
+;; ;;; general for evil
+;; (use-package general
+;;   :ensure t
+;;   :config (progn
+;; 	    ;; bind a key globally in normal state; keymaps must be quoted
+;; 	    (setq general-default-keymaps 'evil-normal-state-map)
+;; 	    ;; bind j and k in normal state globally
+;; 	    (general-define-key
+;; 	     "j" 'evil-next-visual-line
+;; 	     "k" 'evil-previous-visual-line)
+;; 	    ;; bind gj and gk
+;; 	    (general-define-key :prefix "g"
+;; 				"j" 'evil-next-line
+;; 				"k" 'evil-previous-line)
+;; 	    ;; named prefix key
+;; 	    (setq my-leader1 ",")
+;; 	    (general-define-key :prefix my-leader1
+;; 				"f" 'find-file)
+;; 	    ;; a default prefix sequence
+;; 	    (setq general-default-prefix ",")
+;; 	    (general-define-key "f" 'find-file)
+;; 	    ;; bind a key in multiple states
+;; 	    (general-define-key :keymaps 'org-mode-map
+;; 				:states '(insert emacs)
+;; 				"<tab>" 'org-cycle)    )
+;;   )
+
+#+END_SRC
+
+#+RESULTS:
+: t
+
+* undo tree
+#+BEGIN_SRC emacs-lisp
+(use-package undo-tree
+  :ensure t
+  :init
+  (progn (global-undo-tree-mode t)
+	 )
+  )
+#+END_SRC
+
+#+RESULTS:
+* misc
+#+BEGIN_SRC emacs-lisp
+(global-hl-line-mode t)
+
+	  ;;; beacon
+;; highlights the cursor when scrolling
+(use-package beacon
+  :ensure t
+  :config (progn
+	    (beacon-mode 1)
+	    ;;(setq beacon-color "#666600")
+	    )
+  )
+
+	  ;;; hungry delete
+;; deletes all the whitespace between text
+(use-package hungry-delete
+  :ensure t
+  :config (progn
+	    (global-hungry-delete-mode)
+	    )
+  )
+
+	  ;;; aggresive indent
+(use-package aggressive-indent
+  :ensure t
+  :config (progn
+	    (global-aggressive-indent-mode 1)
+	    )
+  )
+
+	  ;;; expand region
+(use-package expand-region
+  :ensure t
+  :config (progn
+	    (global-set-key (kbd "C-=") 'er/expand-region)
+	    (global-set-key (kbd "C--") 'er/contract-region)
+	    )
+  )
+
+;; saves the clipboard from other programs and combines them with emacs
+(setq save-interprogram-paste-before-kill t) 
+
+;; auto-reverting options
+(global-auto-revert-mode 1) ; automatically revert the buffer if your lazy about loading changed  buffers
+(setq auto-revert-verbose nil) ; don't display any messages when doing so
+(global-set-key (kbd "<f5>") 'revert-buffer)
+
+
+#+END_SRC
+* iedit, multiple cursors, narrowing
+#+BEGIN_SRC emacs-lisp
+
+	;;; iedit
+(use-package iedit
+  :ensure t
+  )
+
+    ;;; multiple cursors
+;; multiple cursors let's you add more cursors
+(use-package multiple-cursors
+  :ensure t
+  :config (progn
+	    (global-set-key (kbd "C-c m c") 'mc/edit-lines)
+	    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+	    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+	    ;;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+	    )
+  )
+
+;;; changes keybinds from regular narrowing keybinds to just c-x n to narrow
+;;; and widen
+(defun narrow-or-widen-dwim (p)
+  "widen if buffer is narrowed, narrow-dwim otherwise.
+ dwim means: region, org-src-block, org-subtree, or
+ defun, whichever applies first. narrowing to
+ org-src-block actually calls `org-edit-src-code'.
+ with prefix p, don't widen, just narrow even if buffer
+ is already narrowed."
+  (interactive "p")
+  (declare (interactive-only))
+  (cond ((and (buffer-narrowed-p) (not p)) (widen))
+	((region-active-p)
+	 (narrow-to-region (region-beginning)
+			   (region-end)))
+	((derived-mode-p 'org-mode)
+	 ;; `org-edit-src-code' is not a real narrowing
+	 ;; command. remove this first conditional if
+	 ;; you don't want it.
+	 (cond ((ignore-errors (org-edit-src-code) t)
+		(delete-other-windows))
+	       ((ignore-errors (org-narrow-to-block) t))
+	       (t (org-narrow-to-subtree))))
+	((derived-mode-p 'latex-mode)
+	 (latex-narrow-to-environment))
+	(t (narrow-to-defun))))
+(define-key endless/toggle-map "n"
+  #'narrow-or-widen-dwim)
+;; This line actually replaces Emacs' entire narrowing
+;; keymap, that's how much I like this command. Only
+;; copy it if that's what you want.
+(define-key ctl-x-map "n" #'narrow-or-widen-dwim)
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (define-key LaTeX-mode-map "\C-xn"
+	      nil)))
+	  #+END_SRC
+
+
+	  #+RESULTS:
+	  : t
+	  * web mode
+	  #+BEGIN_SRC emacs-lisp
+	  ;; (use-package web-mode
+	  ;;   :ensure t
+	  :config
+	  (add-to-list 'auto-mode-alist '("\\.html?\\" . web-mode))
+	  (setq web-mode-engines-alist
+		'(("django" . "\\.html\\'")))
+	  (setq web-mode-ac-sources-alist
+		'(("css" . (ac-source-css-property))
+		  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+	  (setq web-mode-enable-auto-closing t)
+	  (setq web-mode-enable-auto-quoting t)
+	  )
+
+#+END_SRC
+
+#+RESULTS:
+: t
+* microsoft windows
+#+BEGIN_SRC emacs-lisp
+;; make PC keyboard's Win key or other to type Super or Hyper, for emacs running on Windows.
+(setq w32-pass-lwindow-to-system nil)
+(setq w32-lwindow-modifier 'super) ; Left Windows key
+
+(setq w32-pass-rwindow-to-system nil)
+(setq w32-rwindow-modifier 'super) ; Right Windows key
+
+(setq w32-pass-apps-to-system nil)
+(setq w32-apps-modifier 'hyper) ; Menu/App key
+
+#+END_SRC

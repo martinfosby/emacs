@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+#define HELLO "HELLO"
+#define WORLD "WORLD"
+
+int main(int argc, char *argv[argc])
+{
+  printf("%s %s\n",HELLO, WORLD );
+  return 0;
+}

@@ -1,0 +1,18 @@
+cd ~/
+ls
+cd .emacs.d/
+ls
+rm myinit.org myinit.el
+ls
+rm myinit.org\~ 
+ls
+make
+ll
+ls -al
+find-file .vimrc
+find-file c-file.c 
+ls
+cd
+cd Dropbox/programming/c/The_C_Programming_Language/
+ls
+./a.out 

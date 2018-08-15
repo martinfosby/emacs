@@ -1,0 +1,19 @@
+#include <iostream>
+#include "fact.h"
+#include "combination.h"
+
+using namespace std;
+/*
+  C(n,k) == n! / k!*(n-k)!
+*/
+
+int main()
+{
+  for (int i = 1; i < 10; i++) {
+    cout << i << " : " << fact(i) << endl;
+  }
+
+  cout << comb(5,3) << endl;
+
+  return 0;
+}

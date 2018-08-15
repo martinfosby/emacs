@@ -1,0 +1,35 @@
+#!/bin/bash
+# Adding software:
+sudo apt-get install -y dconf-tools vim git curl
+
+
+# Python
+sudo apt-get install -y python-pip virtualenv
+
+# pip
+#pip install nikola
+
+# c, c++, java
+sudo apt-get install -y global
+
+
+### source codes
+
+# required for emacs to configure
+sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev
+
+## installing from source
+# emacs
+if [ ! -d "/usr/src/emacs-25.3" ]
+then
+    printf '\e[1;34m%-6s\e[m' "installing emacs from source please wait..."
+    pushd /usr/src/
+    sudo wget --verbose http://ftp.snt.utwente.nl/pub/software/gnu/emacs/emacs-25.3.tar.gz /usr/src
+    sudo tar -xvf emacs-25.3.tar.gz
+    cd emacs-25.3
+    sudo ./configure
+    sudo make && sudo make install
+    popd
+    printf '\e[1;34m%-6s\e[m' "all done"
+fi
+

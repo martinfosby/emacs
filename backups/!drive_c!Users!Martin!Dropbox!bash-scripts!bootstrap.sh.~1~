@@ -1,0 +1,59 @@
+# Enable sources, add PPAs and update sources: 
+sudo sed 's/# deb/deb/' -i /etc/apt/sources.list
+
+sudo add-apt-repository ppa:tiheum/equinox
+sudo add-apt-repository ppa:am-monkeyd/nautilus-elementary-ppa
+sudo apt-get update
+sudo apt-get upgrade
+
+# Symlinking home folders.
+ cd ~/
+ ln -s ~/Dropbox/.emacs.d/ ~/
+ ln -s ~/org ~/
+ ln -s ~/programming ~/
+ ln -s ~/spacemacs ~/
+ ln -s ~/TODO\ list
+ ln  ~/Dropbox/.profile ~/
+
+## installing from source
+# emacs
+if grep "emacs"
+then
+	sudo wget http://ftp.snt.utwente.nl/pub/software/gnu/emacs/emacs-25.3.tar.gz /usr/src
+	cd /usr/src
+	sudo tar -xf emacs-25.3.tar.gz
+	cd emacs-25.3
+	sudo./configure
+	sudo make && sudo make install
+	cd
+fi
+
+# Adding software:
+sudo apt-get install -y dconf-tools 
+
+# Python
+sudo apt-get install -y python-pip virtualenv
+
+# pip
+pip install nikola
+
+# c, c++, java
+sudo apt-get install -y global
+
+# restart nautilus (req. to activate elementary):
+nautilus -q
+
+# remove lock screen
+
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+
+# Altering settings power management (OLD method):
+
+gconftool-2 --set --type string /apps/gnome-power-manager/critical_battery       shutdown 
+gconftool-2 --set --type bool   /apps/gnome-power-manager/battery_reduce         false
+gconftool-2 --set --type bool   /apps/gnome-power-manager/idle_dim_battery       false
+gconftool-2 --set --type string /apps/gnome-power-manager/lid_ac                 blank
+gconftool-2 --set --type string /apps/gnome-power-manager/lid_battery            blank
+gconftool-2 --set --type string /apps/gnome-power-manager/sleep_computer_ac      0
+gconftool-2 --set --type string /apps/gnome-power-manager/sleep_computer_battery 0
+gconftool-2 --set --type string /apps/gnome-power-manager/power                  interactive

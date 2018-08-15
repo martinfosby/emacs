@@ -1,0 +1,17 @@
+#include <iostream>
+#include "fact.h"
+
+using namespace std;
+
+/*
+  C(n,k) == n! / k!*(n-k)!
+*/
+
+int main(int argc, char *argv[])
+{
+  for (int i = 0; i < 10; ++i) {
+    cout << i << " : " << fact(i) << endl;
+  }
+
+  return 0;
+}

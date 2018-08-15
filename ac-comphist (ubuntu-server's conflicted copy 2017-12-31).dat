@@ -1,0 +1,30 @@
+((("evil-org-mode" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("add-hook" .
+   [1 0 0 0 0 0 0 0])
+  ("evil-normal-state" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("yas-global-mode" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("progn" .
+   [1 0 0 0 0])
+  (":init" .
+   [1 0 0 0 0])
+  ("yasnippet" .
+   [0 0 0 0 0 1 0 0 0])
+  ("use-package" .
+   [0 0 0 0 1 0 1 0 0 0 0])
+  ("solarized-dark" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("solarized" .
+   [0 0 0 0 0 0 1 0 0])
+  (":ensure" .
+   [1 0 0 0 2 0 0])
+  (":config" .
+   [1 0 0 0 0 0 0])
+  ("evil-mode" .
+   [1 0 0 0 0 0 0 0 0])
+  ("okfeokfoekkkkdi" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("feokfeok" .
+   [1 0 0 0 0 0 0 0])))
